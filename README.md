@@ -1,6 +1,12 @@
 # crowdNER
 
 > Using outlier detection and entity recognition to improve a crowdsourcing biocuration system
+> This repo contains three parts:
+> 1. Set environment
+> 2. Conduct analyses for Markteria
+> 3. Start the improved biocuration tool
+>
+> It needs annotators' biocuration results in _Markteria_ when generating the table in paper
 
 ## Set environment
 
@@ -115,6 +121,7 @@ $ ./ans -a build-benchmark
 $ ./ans -a parse-mark-result
 
 # verify the individual biocuration results on benchmark, the average performance would be shown on the command line
+# the output correspond to Table Comparison of Markteria with automatic NER tools - Average of subjects with experts in the paper
 $ ./ans -a verify-benchmark
 
 # verify the aggregated biocuration results on benchmark, the output is generated in '../res/verify/NER/verification.json'
@@ -128,15 +135,33 @@ $ ./ans -a verify
 $ ./ans -a parse-mark-result -b _dirty -b _tseng
 
 # verify the individual biocuration results on benchmark, the average performance would be shown on the command line
+# the output correspond to Table Comparison of Markteria with automatic NER tools - Average of subjects without experts in the paper
 $ ./ans -a verify-benchmark
 
 # verify the aggregated biocuration results on benchmark, the output is generated in '../res/verify/NER/verification.json'
+# the output['crowdSourcing']['3']['0.5'] correspond to Table Comparison of Markteria with automatic NER tools - Markteria without experts in the paper
 $ ./ans -a verify -b _dirty -b _tseng
+```
+
+- expert only
+
+```bash
+# parse all the expert annotators' biocuration results
+$ ./ans -a parse-mark-result -b [amateur A] -b [amateur B] ......
+
+# verify the individual biocuration results on benchmark, the average performance would be shown on the command line
+# the output correspond to Table Comparison of Markteria with automatic NER tools - Average of experts only in the paper
+$ ./ans -a verify-benchmark
+
+# verify the aggregated biocuration results on benchmark, the output is generated in '../res/verify/NER/verification.json'
+$ ./ans -a verify -b [amateur A] -b [amateur B] ......
 ```
 
 - automatic bioNER tools
 
 ```bash
+# the output correspond to Table Comparison of Markteria with automatic NER tools - Automatic tools
+
 # verify the biocuration results of 'GENIA_tagger' on benchmark
 $ ./hybrid-tools -t GENIA_tagger -b
 
