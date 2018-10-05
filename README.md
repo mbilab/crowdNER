@@ -1,12 +1,12 @@
 # crowdNER
 
-> Using outlier detection and entity recognition to improve a crowdsourcing biocuration system
+> Using outlier detection and entity recognition to improve a crowdsourcing biocuration system.
 > This repo contains three parts:
 > 1. Set environment
 > 2. Conduct analyses for Markteria
 > 3. Start the improved biocuration tool
 >
-> It needs annotators' biocuration results in _Markteria_ when generating the table in paper
+> It needs annotators' biocuration results in _Markteria_ when generating the table in paper.
 
 ## Set environment
 
